@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby on Rails and Web Development</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code {
+        font-family: 'Ubuntu Mono';
+      }
+      .me-background {
+        background-image: url('/me.jpg');
+        background-size: cover !important;
+
+        padding-left: 65%;
+        padding-top: 40%;
+
+        color: white;
+      }
+      .reinteractive {
+        background-color: #222;
+        color: #eee;
+      }
+      .reinteractive img {
+        vertical-align: middle;
+      }
+      .smaller-ruby img {
+        height: 300px;
+      }
+      .larger-code .remark-code {
+        font-size: 1.2em;
+      }
+      .only-code {
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      .only-code pre {
+        margin: 20px;
+      }
+      .centered-title h1 {
+        text-align: center;
+      }
+      .rails {
+        background-image: url(rails_code.png);
+        background-size: cover !important;
+
+        color: #eee;
+      }
+      .rails h1, .rails p, .rails li {
+        text-shadow: 2px 2px 2px black;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, smaller-ruby
+
+![ruby](ruby.png)
+# Ruby on Rails
+
+---
+
+class: me-background
+
+# `whoami`
+* Leonard
+* Ruby/Rails/Web Dev
+* [@lgarvey](https://twitter.com/lgarvey)
+
+---
+
+class: reinteractive, center, middle
+
+![logo1](reinteractive-logo1.jpg)
+![logo2](reinteractive-logo2.png)
+
+We build custom online applications primarily with Ruby on Rails.
+
+---
+
+class: larger-code only-code
+
+```ruby
+class Ruby
+  def what?
+    "Ruby is a dynamic, general-purpose programming language"
+  end
+
+  def driving_principle
+    "Ruby is designed for *programmer* happiness"
+  end
+
+  def why?
+    ["Useful like Perl",
+    "With proper OO",
+    "Good functional support"].join(" ")
+  end
+
+  def who?
+    "Created by Yukihiro Matsumoto in Japan ~20 years ago"
+  end
+end
+```
+
+---
+
+class: centered-title, rails
+
+# Rails
+
+## A whirlwind tour:
+* Web framework built using Ruby
+* Opinionated - convention over configuration
+* Emphasis on automated-testing
+* Model View Controller architecture
+
+---
+
+class: centered-title, rails
+
+# A web request in Rails
+
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
