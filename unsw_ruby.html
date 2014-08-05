@@ -13,16 +13,57 @@
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
+      li {
+        margin-bottom: 20px;
+      }
       .remark-code, .remark-inline-code {
         font-family: 'Ubuntu Mono';
       }
+      .darkslide {
+        background: #45484d; /* Old browsers */
+        background: linear-gradient(to bottom, #45484d 0%,#000000 100%);
+        color: #eee;
+      }
+      .darkslide a {
+        color: #ddd;
+      }
+      .lightslide {
+        background: #e9f6fd;
+        background: linear-gradient(to bottom, #e9f6fd 0%,#d3eefb 100%);
+        color: #222;
+      }
+      .colorfulslide {
+        background: #f8ffe8;
+        background: linear-gradient(to bottom, #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%);
+      }
+      .alsocolorfulslide {
+        background: #febbbb;
+        background: linear-gradient(to bottom, #febbbb 0%,#fe9090 45%,#ff5c5c 100%);
+      }
+      .command-line {
+        background-color: #191919;
+        color: green;
+      }
+      .devhub {
+        background-image: url('devhub.jpg');
+        background-size: cover !important;
+        color: white;
+        text-shadow: 1px 1px 1px black;
+      }
+      .devhub a {
+        color: white;
+      }
       .me-background {
-        background-image: url('/me.jpg');
+        background-image: url('me.jpg');
         background-size: cover !important;
 
         padding-left: 65%;
         padding-top: 40%;
 
+        color: white;
+      }
+      .me-background a {
+        text-decoration: none;
         color: white;
       }
       .reinteractive {
@@ -57,6 +98,188 @@
       .rails h1, .rails p, .rails li {
         text-shadow: 2px 2px 2px black;
       }
+      img[alt="chrome-logo"] {
+        height: 200px;
+        position: absolute;
+        left: 0;
+        top: 250px;
+      }
+      img[alt="rails"] {
+        height: 200px;
+        position: absolute;
+        right: 80px;
+        top: 250px;
+      }
+      .request {
+        display: inline-block;
+        border: 2px solid black;
+        position: absolute;
+        top: 300px;
+        left: 100px;
+        z-index: 20;
+        padding: 5px;
+        background-color: #eee;
+      }
+      #request1 {
+        -webkit-animation-duration: 3s;
+        -webkit-animation-name: request-one;
+        -webkit-animation-iteration-count: infinite
+      }
+
+      @-webkit-keyframes request-one {
+        from {
+          margin-left: 0;
+        }
+
+        to {
+          margin-left: 600px;
+        }
+      }
+
+      .rails-component {
+        position: absolute;
+        border: 2px solid black;
+        border-radius: 3px;
+        text-align: center;
+        display: inline-block;
+        min-width: 200px;
+      }
+
+      #controller1, #controller2, #controller3 {
+        right: 100px;
+        height: 100px;
+        line-height: 100px;
+      }
+
+      #rails-router {
+        line-height: 250px;
+
+        background: #efefef;
+        background-size: contain;
+      }
+
+      #controller1 {
+        top: 200px;
+      }
+
+      #controller2 {
+        top: 310px;
+      }
+
+      #controller3 {
+        top: 420px;
+      }
+
+      #request2 {
+        top: 400px;
+        left: 130px;
+
+        -webkit-animation-duration: 3s;
+        -webkit-animation-name: request-two;
+        -webkit-animation-iteration-count: infinite
+      }
+
+      @-webkit-keyframes request-two {
+        from {
+          margin-left: 0;
+          top: 400px;
+        }
+
+        to {
+          margin-left: 500px;
+          top: 220px;
+        }
+      }
+
+      .routing-request {
+        height: 320px;
+      }
+
+      #controller-action-ball {
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        background-color: #efefef;
+        position: absolute;
+        z-index: 30;
+
+        -webkit-animation-duration: 5s;
+        -webkit-animation-name: request-three;
+        -webkit-animation-iteration-count: infinite;
+      }
+
+      @-webkit-keyframes request-three {
+        0% {
+          top: 300px;
+          left: 150px;
+        }
+
+        20% {
+          top: 500px;
+          left: 150px;
+        }
+
+        40% {
+          top: 300px;
+          left: 150px;
+        }
+
+        50% {
+          top: 300px;
+          left: 350px;
+        }
+
+        70% {
+          top: 500px;
+          left: 350px;
+        }
+
+        80% {
+          top: 300px;
+          left: 350px;
+        }
+
+        100% {
+          top: 280px;
+          left: 650px;
+        }
+      }
+
+      #controller4 {
+        line-height: 100px;
+        padding: 0 50px;
+      }
+
+      #models {
+        line-height: 100px;
+        position: absolute;
+        top: 450px;
+      }
+
+      #view {
+        line-height: 100px;
+        position: absolute;
+        top: 450px;
+        left: 300px;
+      }
+
+      .chrome-response {
+        width: 200px;
+        position: absolute;
+        right: 100px;
+        top: 240px;
+      }
+      .heroku {
+        background-color: #3B2F63;
+        background-image: radial-gradient( at 50% top, rgba(84,90,182,0.6) 0%,rgba(84,90,182,0) 75%),radial-gradient( at right top, #794aa2 0%,rgba(121,74,162,0) 57%);
+        background-repeat: no-repeat;
+        background-size: 100% 1000px;
+        color: #c7c0de;
+      }
+      .heroku a {
+        color: #c7c0de;
+      }
     </style>
   </head>
   <body>
@@ -67,14 +290,27 @@ class: center, middle, smaller-ruby
 ![ruby](ruby.png)
 # Ruby on Rails
 
+???
+
+* Introduction
+* Ask class what experience they have with development
+
 ---
 
 class: me-background
 
 # `whoami`
-* Leonard
-* Ruby/Rails/Web Dev
-* [@lgarvey](https://twitter.com/lgarvey)
+Leonard Garvey
+
+Ruby/Rails/Web Dev
+
+[@lgarvey](https://twitter.com/lgarvey)
+
+???
+
+I'm a web developer from Sydney. I've been working with Ruby on Rails for 4-5 years now and worked with PHP, .NET, Java, Perl and a few
+other languages before that. I'm here to help introduce you to Ruby on Rails. At the end I'm happy to answer any questions you might have
+on Ruby, Rails, Web or development in general.
 
 ---
 
@@ -84,6 +320,11 @@ class: reinteractive, center, middle
 ![logo2](reinteractive-logo2.png)
 
 We build custom online applications primarily with Ruby on Rails.
+
+???
+
+I'm here today because my company reInteractive lets me have 20% time to work on stuff like this. We also run a few community
+events targetted towards people learning to program in Ruby which I'll get to later.
 
 ---
 
@@ -111,6 +352,18 @@ class Ruby
 end
 ```
 
+???
+
+Ruby is a multi-paradigm, dynamically typed interpreted programming language created in Japan around 20 years ago.
+The goal of Ruby is to be as useful as Perl but have proper Object-oriented support like Smalltalk. It supports
+functional concepts like lambda and closures making it easy to program in a functional or imperative style.
+
+Like Python or Perl, Ruby can be used as a scripting language and excels at this task.
+
+I enjoy using Ruby because it's beautiful, clean and easy to understand. When written well it almost reads as
+English which I feel improves readability and therefore maintability significantly. The ruby community has
+a large commitment to testing tools and has been widely influential in this area.
+
 ---
 
 class: centered-title, rails
@@ -121,13 +374,360 @@ class: centered-title, rails
 * Web framework built using Ruby
 * Opinionated - convention over configuration
 * Emphasis on automated-testing
+* Consistent directory structure
 * Model View Controller architecture
+* Currently at version 4.1
+
+???
+
+We're going to cover lots and concepts here but Rails is featureful, opinionated providing lots of defaults
+which make your life easier and make your web-app more secure.
 
 ---
 
-class: centered-title, rails
+class: centered-title
 
 # A web request in Rails
+
+A http client issues a request to the server:
+
+![chrome-logo](chrome-logo.png)
+![rails](rails.png)
+<p id="request1" class="request">GET /posts<p>
+
+???
+
+Like all web frameworks Rails starts with the request from the client. The client is probably
+a browser but could be another program or a utility like curl.
+
+The important parts here are the HTTP verb "GET", and the path "/posts".
+
+---
+
+class: centered-title
+
+# A web request in Rails
+
+Rails handles the request, using the router to send the request to the correct controller and action.
+The router is in `config/routes.rb`
+
+<div class="routing-request">
+<p id="rails-router" class="rails-component">Router</p>
+<p id="request2" class="request">GET /posts<p>
+<p id="controller1" class="rails-component">PostsController</p>
+<p id="controller2" class="rails-component">CommentsController</p>
+<p id="controller3" class="rails-component">HomeController</p>
+</div>
+
+To learn more about Rails routing check out the [Routing guide](http://guides.rubyonrails.org/routing.html).
+
+---
+
+class: centered-title
+
+# A web request in Rails
+
+The controller action receives the request, gathers together information from the database and renders the response
+which is sent back to the client.
+
+<div class="routing-request">
+<p id="controller-action-ball">&nbsp;</p>
+<p id="controller4" class="rails-component">PostsController</p>
+<p id="models" class="rails-component">Models</p>
+<p id="view" class="rails-component">View</p>
+<img src="chrome-logo.png" class="chrome-response"/>
+</div>
+
+---
+
+class: centered-title lightslide
+
+# Controllers
+
+Controllers are the "C" in MVC and live in `app/controllers`. By convention they are named as a pluralised
+version of whatever "resource" (database model) it deals with. So if you controller handles the `Post` model
+it will be called `PostsController` and be in the file `app/controllers/posts_controller.rb`
+
+```ruby
+class PostsController < ApplicationController
+end
+```
+
+When you create a new Rails application it creates an `ApplicationController` which is used for common behaviour
+between your separate controllers.
+
+
+---
+
+class: centered-title lightslide
+
+# Controllers
+
+Actions in a controller are the methods that deal with specific web-requests for that controllers resource.
+By convention there are seven resourceful actions: `#index`, `#new`, `#create`, `#show`, `#edit`, `#update` and `#destroy`
+
+```ruby
+class PostsController < ApplicationController
+  def index
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+end
+```
+
+---
+
+class: centered-title colorfulslide
+
+# Models and ActiveRecord
+
+Rails uses an ORM called ActiveRecord as a database abstraction layer. This means you use your models to interact with
+your database. Models live in `app/models`.
+
+```ruby
+class Post < ActiveRecord::Base
+end
+```
+
+When Rails boots it reads the database structure and creates the attributes on this model depending on what
+is in the database.
+
+```ruby
+p = Post.find(1) # find the post with an id of 1
+p.id             #=> 1
+p.title          #=> "Test title"
+```
+
+The code in your model can be focused on validations, or model specific business logic.
+
+---
+
+class: centered-title colorfulslide
+
+# Programming Models
+
+Models are used to contain business logic which is related to that particular model. Validations are a good example.
+If you have a requirement that each Post must have a body field filled out then you would write this:
+
+```ruby
+class Post < ActiveRecord::Base
+  validates_presence_of :body
+end
+```
+
+This can mirror a database-constraint, but it can also do different things. For example you might want to specify
+the format of an email address:
+
+```ruby
+class User < ActiveRecord::Base
+  validates_presence_of :email
+  validates_format_of :email, with: /@/ # email must have a @ symbol in it.
+end
+```
+
+---
+
+class: centered-title alsocolorfulslide
+
+# Views
+
+Views are your application templates used to, primarly, generate HTML. They live in `app/views`.
+Rails expects your views to be in a certain location depending on the controller action being executed.
+
+```ruby
+class PostsController < ApplicationController
+  # The index view should be in `app/views/posts/index.html.erb`
+  def index
+  end
+
+  # The new view should be in `app/views/posts/new.html.erb`
+  def new
+  end
+
+  # By convention the create action does not have a view.
+  # it will instead redirect on success or render the new view on failure.
+  def create
+  end
+end
+```
+
+So the location of a view is: `<controller>/<action>` under the `app/views` directory.
+
+---
+
+class: centered-title alsocolorfulslide
+
+# ERB
+
+ERB is the templating "language" used for Rails. It stands for "Embedded Ruby".
+
+Ruby code:
+```ruby
+<% ruby.code %>
+```
+
+Outputting the result of some ruby:
+```ruby
+<%= Post.find(1).body %>
+```
+
+So a simple html erb template might look like:
+
+```html
+<div class="posts">
+  <% @posts.each do |post| %>
+    <p><%= post.title %></p>
+  <% end %>
+</div>
+```
+
+---
+
+class: darkslide
+
+# Assets
+
+* CSS, JavaScript, Images are static assets and stores in `app/assets`
+* SASS and CoffeeScript are supported by default
+* The asset-pipeline concatenates and minifies your assets
+* Also makes your application ready to integrate with a CDN
+
+Read more about the assets at: http://guides.rubyonrails.org/asset_pipeline.html
+
+???
+
+In Rails static assets (images, javascript and css) are stored in `app/assets`. The appropriate directories
+will be generated for you when you create your Rails application. Rails natively handles CSS-preprocessors like SASS
+and the JavaScript-targetting CoffeeScript. Use of these is optional but personally recommended.
+
+Rails has a technology called the "asset pipeline" which compiles SASS and CoffeeScript, concatenates and
+minifies CSS and JavaScript so only 1 request is required from your HTML to load your CSS and JavaScript. The asset
+pipeline also adds a "fingerprint" to your static assets which makes them *very* cache friendly. Integrating Rails
+with a content delivery network (CDN) is very easy.
+
+
+---
+
+class: command-line
+
+# Command Line Tools
+
+Rails works with the command line:
+
+To create a new Rails application:
+```
+rails new app_name
+```
+
+To start the Rails server:
+```
+rails server
+```
+
+To open an interactive application console:
+```
+rails console
+```
+
+To generate a new model:
+```
+rails generate model User email:string name:string birthdate:date
+rake db:migrate
+```
+
+Most of these have shorter versions. `rails s` instead of `rails server`, `rails c` instead of `rails console`
+
+???
+
+Rails does not come with a complex IDE, instead of complex XML files it is just Ruby code comprising of your
+application. This means it is easy to work with a simple text-editor and the command line.
+
+---
+
+class: heroku
+
+# Deployment
+
+Using a service like Heroku can make it extremely easy to deploy a Rails application for free on the internet.
+
+1. Setup your Heroku account.
+2. Use the heroku toolbelt to create your application.
+3. Use git to push your application to the heroku servers.
+
+Heroku has a really good guide on getting started: https://devcenter.heroku.com/articles/getting-started-with-rails4
+
+???
+
+Heroku can also web applications in a variety of other frameworks including Python, Django and Java.
+
+---
+
+class: devhub
+
+# Getting Help with Rails
+
+One of the best things about Ruby and Rails is the community. In Sydney there are three events which might
+be interesting:
+
+1. [Development Hub](http://www.meetup.com/Ruby-On-Rails-Oceania-Sydney/) - a hack night with mentors.
+2. [Installfest](http://railsinstallfest.org) - free help to get your computer up and running with Rails.
+3. [Ruby or Rails Oceania meetup](http://ruby.org.au/meetups/syd.html). A social event with talks.
+
+Otherwise help can be found on [stackoverflow](http://stackoverflow.com) or on IRC in freenode `#rubyonrails`. Be careful about asking
+other people to answer homework questions though, try to abstract your problem into something more
+general.
+
+If you tweet me [@lgarvey](https://twitter.com/lgarvey) with a gist explaining your problem and pointing towards your code (hopefully on github)
+I might be able to help.
+
+???
+
+Essential Rails resources are:
+
+1. The rails guides: http://guides.rubyonrails.org/
+2. Rails documentation: http://api.rubyonrails.org/
+3. Rails tutorial book: http://www.railstutorial.org/book
+
+Some great Ruby resources are:
+
+1. Learn to Program: https://pine.fm/LearnToProgram/
+2. Just enough Ruby: http://www.apeth.com/rubyIntro/justenoughruby.html
+3. Ruby Koans: http://rubykoans.com/
+
+---
+
+class: darkslide
+
+# Assignment Comments
+
+* For interacting with the APIs look to use a library rather than writing your own. There are ruby gems for Flickr,
+Instagram, Google Maps and Twitter.
+* Determine if you want to curate the collection of images, or live load the images from the API. I recommend curating
+because it gives a consistent quality of outcome and can be more easily optimised for performance.
+* You could curate images from the API by using a custom `rake` task or by building a curation interface which lets you choose and add "meta-data" to media pulled from the API according to your chosen theme.
+* Start using a version control system like Git. This is industry standard and it will save your bacon. Share and store
+your code with team-mates on a service like Github.
+
+???
+
+With Github I would recommend keeping everything open, you can always remove things later. If you really, really want to
+keep your code private you can either apply for a Github education discount or use Bitbucket.
 
 
     </textarea>
