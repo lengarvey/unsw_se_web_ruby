@@ -400,7 +400,9 @@ A http client issues a request to the server:
 Like all web frameworks Rails starts with the request from the client. The client is probably
 a browser but could be another program or a utility like curl.
 
-The important parts here are the HTTP verb "GET", and the path "/posts".
+The important parts here are the HTTP verb "GET", and the path "/posts". Using the HTTP verb
+is an important part of being RESTful, keeping Rails semantically aligned with HTTP and allows
+us to have cleaner URLs.
 
 ---
 
@@ -421,6 +423,15 @@ The router is in `config/routes.rb`
 
 To learn more about Rails routing check out the [Routing guide](http://guides.rubyonrails.org/routing.html).
 
+???
+
+Our request is accepted by the rails router (located in `config/routes.rb`) and then forwarded on to
+the correct controller and action according to the rules the application programmer has put in there.
+
+When programming at any time you can type `rake routes` on your command line and see a list of routes
+your application will respond to. If your application can't respond to a request it will return a HTTP 404 not found
+response instead.
+
 ---
 
 class: centered-title
@@ -437,6 +448,17 @@ which is sent back to the client.
 <p id="view" class="rails-component">View</p>
 <img src="chrome-logo.png" class="chrome-response"/>
 </div>
+
+???
+
+Here we see the controller has received the request and gathers data from the model/s, then renders the view template.
+Finally it returns the compiled HTML back to the browser.
+
+This is still fairly standard with how things work in any MVC-based web framework.
+
+The controller has access to the the request at all times but it's more common to see the controller be only concerned
+with the `params` of the request. The params of a request are the query parameters (they are in the URL after the ?)
+or the post params (sent as part of the request itself).
 
 ---
 
@@ -456,6 +478,16 @@ end
 When you create a new Rails application it creates an `ApplicationController` which is used for common behaviour
 between your separate controllers.
 
+???
+
+Controllers manage the request taking action depending on the request parameters, and compile the response to
+send back to the client. The response is usually in HTML, but it is easy to use Rails to create a JSON or XML
+API (although please do not create an XML api, it is 2014!)
+
+Your controllers live in `app/controllers` and according to Rails convention they have a certain file and class
+naming structure. If your controller handles blog Posts, it might be called the PostsController and be in the file
+`app/controllers/posts_controller.rb`. If it handles Images it could be called the ImagesController and be in the file
+`app/controllers/images_controller.rb`.
 
 ---
 
@@ -491,6 +523,26 @@ class PostsController < ApplicationController
 end
 ```
 
+???
+
+These default actions (or methods) represent CRUD - create, read, update and delete. By convention here is what
+each of those default resourceful actions do:
+
+* index: returns a list of things, in this case a list of posts.
+* new: returns a form allowing a new thing to be created, in this case a new post.
+* create: the form from the new action does a HTTP POST to the create action which uses the parameters from the form
+to create a thing, in this case a post.
+* show: shows a thing in this case a post. The thing it shows is determined by the id provided in the URL.
+* edit: returns a form allowing a thing to be edited. Similar to the new action but operates on an existing thing.
+* update: the edit form sends a PUT or PATCH request to this action which will update the thing according to the parameters.
+* destroy: destroys a thing. This uses the HTTP DELETE verb and the thing deleted is provided in the URL.
+
+An important skill to learn is to try and stick to just using these default resourceful actions. This way your application
+will be able to grow naturally without your controllers becoming difficult to maintain. I would consider it a "code smell"
+to use any action besides these seven but sometimes it is easier.
+
+More info on controllers can be found here: http://guides.rubyonrails.org/action_controller_overview.html
+
 ---
 
 class: centered-title colorfulslide
@@ -516,6 +568,28 @@ p.title          #=> "Test title"
 
 The code in your model can be focused on validations, or model specific business logic.
 
+???
+
+ActiveRecord is an object to relational mapper or ORM. It converts the tables in our database to Ruby objects
+which can be easily used in our Rails applications. It also provides us a simply query-interface which can be used
+instead of SQL.
+
+Our models are named so because they represent data and/or concepts within our system. Conventionally models are
+persisted to a database using ActiveRecord. They live in `app/models`. Examples of models could be:
+
+* A tweet model in twitter. (originally Rails but now various)
+* A media model on instagram. (django)
+* A pin model on pinterest. (django)
+* A forum model on ravelry. (rails)
+* A product model on the ABC Online shop. (rails)
+
+Note that I'm just providing simplified examples here. The actual implementations are probably different and more
+complex.
+
+These models encapsulate data and behaviour. The tweet model on twitter (which was originally powered by Rails)
+would have the text of the tweet, the user who sent it and a possibly a list of users mentioned and a list of hashtags.
+It would also have created_at, updated_at and id fields.
+
 ---
 
 class: centered-title colorfulslide
@@ -540,6 +614,28 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /@/ # email must have a @ symbol in it.
 end
 ```
+
+???
+
+Validations are a small part of what a model contains but for simple applications they are the most important.
+It is critical that you make sure that the data you have in your application is as clean as possible because
+then you can make assumptions about it later. Validations erros can also be propogated up to the user and
+displayed next to a form, the easiest way to do this would be using a gem like [simple form](http://simple-form.plataformatec.com.br/)
+
+In your models you can also add in lifecycle callbacks. For instance you might want to run some code after a User is created
+
+```ruby
+class User < ActiveRecord::Base
+  after_create :send_welcome_email
+
+  def send_welcome_email
+    # do some stuff
+  end
+end
+```
+
+There is a LOT you can do with ActiveRecord. You can associate one model with another which just like a foreign-key relationship.
+As usual to find out more check out the Rails guides: http://guides.rubyonrails.org/active_record_basics.html
 
 ---
 
@@ -568,6 +664,29 @@ end
 ```
 
 So the location of a view is: `<controller>/<action>` under the `app/views` directory.
+
+???
+
+Views in Rails are similar to what other frameworks might call templates. Each view
+contains the HTML we're going to be generating and also some ruby code which can be used
+to repeat elements or insert dynamic data into the view.
+
+By convention views are located in `app/views` and by convention the default view for
+each action is determined by the name of the controller and the name of the action. Views
+can also be reused by splitting common sections into "partials" which can be inserted into
+other views:
+
+```ruby
+<%= render 'posts/some_partial' %>
+```
+
+Rails also has an application layout which holds all the common stuff surrounding each page
+in your application. These global files are located in `app/views/layouts` and the default
+layout file will be in `app/views/layouts/application.html.erb`
+
+By default Rails uses ERB to embed ruby code inside our html templates.
+
+More information at the rails guide: http://guides.rubyonrails.org/layouts_and_rendering.html
 
 ---
 
@@ -734,6 +853,14 @@ keep your code private you can either apply for a Github education discount or u
 class: darkslide center middle
 
 # Questions?
+
+---
+
+class: darkslide middle center
+
+Slides are available at: http://lengarvey.github.io/unsw_se_web_ruby
+
+Press 'p' to see the "presenter" view containing useful notes.
 
 
     </textarea>
